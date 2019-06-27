@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+ <!-- Load TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
+
+  <!-- Place your code in the script tag below. You can also use an external .js file -->
+
+  <style>
+
+    #final
+    {
+        text-align: center;
+    }
+
+  #prediction, #canvas-container{
+    float:left;
+    border: 1px solid black;
+    margin: 0 10px 10px;
+  }
+  #prediction {
+    width: 200px;
+    height: 200px;
+  }
+  #prediction p{
+    font-weight: bold;
+    font-size: 87px;
+    text-align: center;
+    margin: 0;
+  }
+  #controls {
+    clear: both;
+  }
+
+  </style>
+
+        <title>Amplify Framework</title>
+
+
+
+
+        <script>
+
+
+
+
+
+var x;
+function myFunction() {
+  x = Math.floor((Math.random() * 10) );
+  document.getElementById("demo").innerHTML = "the no is "+x;
+
+  accept(x);
+
+}
+
+
+function accept(j)
+{
+     switch (j) {
+  case 0:test("https://us-east-1.sumerian.aws/203ef769db0f4b58a827c4574fd22b2a.scene");
+            
+            var audio = new Audio('0.wav');
+            audio.play();
+            break;
+  case 1:test("https://us-east-1.sumerian.aws/da94189847e64210a0849f989a36595e.scene");
+    var audio = new Audio('1.wav');
+    
+            
+                audio.play();
+            
+        
+    
+    break;
+  case 2:test("https://us-east-1.sumerian.aws/8010a965a8814f0088c6858fea56adad.scene");
+            var audio = new Audio('2.wav');
+    
+            
+                audio.play();
+            
+            
+   
+    break;
+      case 3:test("https://us-east-1.sumerian.aws/9a8a27132a7743148a603b6012b3f588.scene");
+            
+            var audio = new Audio('3.wav');
+            audio.play();
+            break;
+              case 4:test("https://us-east-1.sumerian.aws/f63dcf582c6b4d8eb0a605b40adccc7c.scene");
+            
+            var audio = new Audio('4.wav');
+            audio.play();
+            break;
+              case 5:test("https://us-east-2.sumerian.aws/1c974c8b59324d4e8a44b0ff16c17abd.scene");
+            
+            var audio = new Audio('5.wav');
+            audio.play();
+            break;
+              case 6:test("https://us-east-1.sumerian.aws/19a3c0ec94a742368208ff83ecdb120d.scene");
+            
+            var audio = new Audio('6.wav');
+            audio.play();
+            break;
+              case 7:test("https://us-east-1.sumerian.aws/788baa06327f4a5a9c8e64977d473916.scene");
+            
+            var audio = new Audio('7.wav');
+            audio.play();
+            break;
+              case 8:test("https://us-east-2.sumerian.aws/e4f3260e76264ab180e0f630c9e78339.scene");
+            
+            var audio = new Audio('8.wav');
+            audio.play();
+            break;
+              case 9:test("https://us-east-2.sumerian.aws/07209a1939eb4b4f88c6fca64ed5e55c.scene");
+            
+            var audio = new Audio('9.wav');
+            audio.play();
+            break;
+}
+}
+
+function test(src)
+{
+    document.getElementById("targetFrame").src =src;
+}
+
+
+</script>
+     
+
+
+       <!--  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script> -->
+
+        <style>
+
+            .frames
+            {
+                height: 300px;
+                padding: 20px;
+                margin: 30px;
+            }
+            #main
+            {
+
+                text-align: center;
+                font-size: 200%;
+                background-color: orange;
+                width: 100%;
+                height: 80px;
+
+            }
+
+            #topText
+            {
+                position: relative;
+                bottom: 70px;
+                font-size: 180%;
+                left: 45%;
+                color: '#fbfbfb'
+            }
+
+            #img1
+            {
+                position: relative;
+                bottom: 230px;
+                left: 30px;
+
+            }
+
+
+
+        </style>
+
+
+
+       
+
+
+<!--         <script type="module">
+
+
+import { SumerianScene } from 'aws-amplify-react';
+
+import Amplify, { XR } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+
+
+
+                   
+async function loadAndStartScene() {
+    await XR.loadScene("angel", "sumerian-scene-dom-id");
+    XR.start("angel");
+
+    async function loadAndStartScene() {
+    const progressCallback = (progress) => {
+        console.log(`Sumerian scene load progress: ${progress * 100}%`);
+    }
+
+    const sceneOptions = {
+        progressCallback
+    }
+    
+    await XR.loadScene("angel", "sumerian-scene-dom-id", sceneOptions);
+    XR.start("angel");
+}
+
+if (XR.isSceneLoaded('angel')) {
+
+    if (XR.isMuted('angel')) {
+        // The scene is muted
+        XR.setMuted('angel', false) // Unmute
+    }
+
+}
+
+if (XR.isSceneLoaded('angel')) {
+
+    if (XR.isVRCapable('angel')) {
+        XR.enterVR('angel')
+    }
+
+}
+}
+        </script> -->
+
+
+
+  <!-- Place your code in the script tag below. You can also use an external .js file -->
+
+
+ 
+
+
+    </head>
+    <body>
+
+
+ 
+
+
+       
+
+        <style type="text/css" href="app.css">
+            
+            #test
+            {
+                position: relative;
+                margin: 30px;
+                left: 300px;
+            }
+        </style>
+
+
+        <script src="main.bundle.js"></script>
+
+        <div id="main">
+            
+        </div>
+        <div id="topText">
+            <p><b>LexLearn</b></p>
+        </div>
+<!-- 
+        <div id="img1">
+            <img src="img1.jpg" height="110px" width="110px">
+            
+        </div>
+ -->
+
+         <iframe  style=" position: relative; left: 150px; bottom: 70px; margin: 30px;  width: 70%; height: 400px; background: transparent; border: 0;" src="https://us-east-2.sumerian.aws/3f41284084f14734b8758c6b40499b3c.scene"></iframe>
+
+<div id="final">
+
+               <p>Click the button to try a random number between 1 and 10.</p>
+
+
+
+
+
+<div class="container">
+
+  <button type="button" onclick="myFunction()"  class="btn btn-success">Random number</button>
+  
+</div>
+
+
+
+
+<p id="demo"></p>
+<p id="first"></p>
+
+<!--         <div class="frames">
+           
+            <a href="https://d5d31c6311ee473ab71586229d6f8118.us-east-1.sumerian.aws/">try me</a>
+        </div>
+
+
+
+        <div class="digit-demo-container">
+  <h3 id="digit-recognizer-live-demo">Digit Recognizer using TensorFlow.js Demo</h3>
+  <div class="flex-two" style="margin-top: 20px;">
+    <button id="clear_canvas" class="material-button-pink" onclick="clearCanvas(this.id)">Clear</button>
+    <select id="select_model">
+      <option>MLP</option>
+      <option>CNN</option>
+    </select>
+    <button id="predict_canvas" class="material-button-pink" onclick="predict(this.id)">Predict</button>
+  </div>
+  <div class="flex-two">
+    <div id="canvas_box_wrapper" class="canvas-box-wrapper">
+      <div id="canvas_box" class="canvas-box"></div>
+    </div>
+    <div id="result_box">
+      <canvas id="chart_box" width="100" height="100"></canvas>
+    </div>
+  </div>
+</div>
+
+
+<div id="canvas_box" class="canvas-box">
+  <button id="clear_canvas" class="material-button-pink" onclick="clearCanvas(this.id)">Clear</button>
+</div>
+ -->
+
+   
+
+
+   
+    <!-- <script type="text/javascript" src="js/app.js"></script> -->
+
+
+
+<!-- <div id="sumerian-scene-dom-id"></div> -->
+
+
+<!-- <div id="test">
+    <iframe src="mnist.html" width="50%" height="300px" align="center"></iframe>
+</div>
+ -->
+
+
+<iframe id="targetFrame" width="60%" height="250px"></iframe>
+
+<!-- <iframe src="https://d5d31c6311ee473ab71586229d6f8118.us-east-1.sumerian.aws/"></iframe> -->
+
+
+ <p>Draw a number in this box</p>
+  <div id="canvas-container">
+  </div>
+  <div id="prediction">
+  </div>
+
+  <div id="controls">
+     
+
+<div class="container">
+  
+
+  <button type="button" id="predict" class="btn btn-success">Check</button>
+  
+</div>
+<br>
+<div class="container">
+  
+
+  <button type="button" id="clear" class="btn btn-success">Clear</button>
+  
+</div> <br>
+
+
+
+
+  </div>
+
+
+<br>
+<br>
+<a href="pg1.html">Learn more!!</a>
+
+
+
+
+</div>
+
+
+
+  <script>
+    (function () {
+      // Creates a new canvas element and appends it as a child
+      // to the parent element, and returns the reference to
+      // the newly created canvas element
+      var model;
+      async function loadModel() {
+        model = await tf.loadModel('https://s3-ap-southeast-2.amazonaws.com/mystaticdemo/model.json');
+      }
+
+      function createCanvas(parent, width, height) {
+        var canvas = {};
+        canvas.node = document.createElement('canvas');
+        canvas.node.setAttribute('id', 'canvas');
+        canvas.context = canvas.node.getContext('2d');
+        canvas.node.width = width || 200;
+        canvas.node.height = height || 200;
+        parent.appendChild(canvas.node);
+        return canvas;
+      }
+
+      async function init(container, width, height, fillColor) {
+        var canvas = createCanvas(container, width, height);
+        var ctx = canvas.context;
+        //define a custom fillCircle method
+        ctx.fillCircle = function (x, y, radius, fillColor) {
+          this.fillStyle = fillColor;
+          this.beginPath();
+          this.moveTo(x, y);
+          this.arc(x, y, radius, 0, Math.PI * 2, false);
+          this.fill();
+        };
+        ctx.clearTo = function (fillColor) {
+          ctx.fillStyle = fillColor;
+          ctx.fillRect(0, 0, width, height);
+        };
+        ctx.clearTo(fillColor || "#ffffff");
+
+        // bind mouse events
+        canvas.node.onmousemove = function (e) {
+          if (!canvas.isDrawing) {
+            return;
+          }
+          var x = e.pageX - this.offsetLeft;
+          var y = e.pageY - this.offsetTop;
+          var radius = 3; // or whatever
+          var fillColor = '#000000';
+          ctx.fillCircle(x, y, radius, fillColor);
+        };
+        canvas.node.onmousedown = function (e) {
+          canvas.isDrawing = true;
+        };
+        canvas.node.onmouseup = function (e) {
+          canvas.isDrawing = false;
+        };
+        loadModel();
+      }
+
+      function predict(tfImage) {
+        var output = model.predict(tfImage);
+        var result = Array.from(output.dataSync());
+        console.log('Output is : ', Array.from(output.dataSync())); 
+        var maxPossibility = result.reduce(function(a,b){return Math.max(a,b)});
+        console.log(maxPossibility);
+        document.getElementById('prediction').innerHTML =  '<p>'
+          + result.indexOf(maxPossibility) + '</p>'; 
+          console.log('PROB', result.indexOf(maxPossibility), x);
+       if(result.indexOf(maxPossibility) == x) {
+         console.log("green yess")
+         document.getElementById('prediction').style.color =  'green';
+       } else {
+         document.getElementById('prediction').style.color =  'red'; 
+       }
+      }
+      function clear() {
+        console.log('clear canvas');
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.clearTo('#ffffff');
+        document.getElementById('prediction').innerHTML = '';
+      }
+      function recogniseNumber() {
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        // console.log(ctx.getImageData(0,0, 100, 100));
+        var imageData = ctx.getImageData(0, 0, 200, 200);
+        var tfImage = tf.fromPixels(imageData, 1);
+
+        //Resize to 28X28
+        var tfResizedImage = tf.image.resizeBilinear(tfImage, [28,28]);
+        //Since white is 255 black is 0 so need to revert the values 
+        //so that white is 0 and black is 255 
+        tfResizedImage = tf.cast(tfResizedImage, 'float32');
+        tfResizedImage = tf.abs(tfResizedImage.sub(tf.scalar(255)))
+          .div(tf.scalar(255)).flatten();
+        tfResizedImage = tfResizedImage.reshape([1, 784]);
+
+        //Make another dimention as the model expects 
+        console.log(tfResizedImage.dataSync());
+        console.log(tfResizedImage.toString()) ;
+        predict(tfResizedImage);
+      }      
+
+      var container = document.getElementById('canvas-container');
+      init(container, 200, 200, '#ffffff');
+      document.getElementById('clear').addEventListener('click', clear);
+      document.getElementById('predict').addEventListener('click', recogniseNumber);
+
+
+    })();
+  </script>
+ 
+
+    </body>
+</html>

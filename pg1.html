@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title></title>
+</head>
+<body>
+
+	<script>
+
+
+
+
+
+var x;
+function myFunction() {
+  x = Math.floor((Math.random() * 10) );
+  document.getElementById("demo").innerHTML = "the no is "+x;
+
+  accept(x);
+
+}
+
+
+
+function myFunction1()
+{
+	test0("https://us-east-1.sumerian.aws/203ef769db0f4b58a827c4574fd22b2a.scene");
+	test1("https://us-east-1.sumerian.aws/da94189847e64210a0849f989a36595e.scene");
+	test2("https://us-east-1.sumerian.aws/8010a965a8814f0088c6858fea56adad.scene");
+	test3("https://us-east-1.sumerian.aws/9a8a27132a7743148a603b6012b3f588.scene");
+	test4("https://us-east-1.sumerian.aws/f63dcf582c6b4d8eb0a605b40adccc7c.scene");
+}
+
+function myFunction2()
+{
+	test0("https://us-east-2.sumerian.aws/1cfcf6c8a9ac419a8905121f77cbf384.scene");
+	test1("https://us-east-2.sumerian.aws/10e3ef3a59cc4ae6b0f8cf31943e7099.scene");
+
+}
+
+
+
+
+function accept(j)
+{
+     switch (j) {
+  case 0:test("https://us-east-1.sumerian.aws/203ef769db0f4b58a827c4574fd22b2a.scene");
+            
+            var audio = new Audio('0.wav');
+            audio.play();
+            break;
+  case 1:test("https://us-east-1.sumerian.aws/da94189847e64210a0849f989a36595e.scene");
+    var audio = new Audio('1.wav');
+    
+            
+                audio.play();
+            
+        
+    
+    break;
+  case 2:test("https://us-east-1.sumerian.aws/8010a965a8814f0088c6858fea56adad.scene");
+            var audio = new Audio('2.wav');
+    
+            
+                audio.play();
+            
+            
+   
+    break;
+      case 3:test("https://us-east-1.sumerian.aws/9a8a27132a7743148a603b6012b3f588.scene");
+            
+            var audio = new Audio('3.wav');
+            audio.play();
+            break;
+              case 4:test("https://us-east-1.sumerian.aws/f63dcf582c6b4d8eb0a605b40adccc7c.scene");
+            
+            var audio = new Audio('4.wav');
+            audio.play();
+            break;
+              case 5:test("https://d5d31c6311ee473ab71586229d6f8118.us-east-1.sumerian.aws/");
+            
+            var audio = new Audio('5.wav');
+            audio.play();
+            break;
+              case 6:test("https://us-east-1.sumerian.aws/19a3c0ec94a742368208ff83ecdb120d.scene");
+            
+            var audio = new Audio('6.wav');
+            audio.play();
+            break;
+              case 7:test("https://us-east-1.sumerian.aws/788baa06327f4a5a9c8e64977d473916.scene");
+            
+            var audio = new Audio('7.wav');
+            audio.play();
+            break;
+              case 8:test("https://d5d31c6311ee473ab71586229d6f8118.us-east-1.sumerian.aws/");
+            
+            var audio = new Audio('8.wav');
+            audio.play();
+            break;
+              case 9:test("https://us-east-2.sumerian.aws/07209a1939eb4b4f88c6fca64ed5e55c.scene");
+            
+            var audio = new Audio('9.wav');
+            audio.play();
+            break;
+}
+}
+
+function test(src)
+{
+    document.getElementById("targetFrame").src =src;
+}
+
+function test0(src)
+{
+    document.getElementById("targetFrame0").src =src;
+}
+function test1(src)
+{
+    document.getElementById("targetFrame1").src =src;
+}
+function test2(src)
+{
+    document.getElementById("targetFrame2").src =src;
+}
+function test3(src)
+{
+    document.getElementById("targetFrame3").src =src;
+}
+function test4(src)
+{
+    document.getElementById("targetFrame4").src =src;
+}
+
+
+</script>
+     
+
+</body>
+
+		  <p>Lets learn digits</p>
+
+<div class="container">
+
+  <button type="button" onclick="myFunction()" class="btn btn-success">Show</button>
+  
+</div>
+			<p id="demo"></p> <br>
+			<p id="first"></p> <br>
+
+
+
+		<iframe style= "position: relative; left: 100px;  margin: 30px;  width: 70%; height: 400px; background: transparent; border: 0;" id="targetFrame"></iframe><br><br>
+
+
+	<button onclick="myFunction1()">Show ALL Digits</button>
+
+<button onclick="myFunction2()">Show ALL Alphabets</button> <br><br>
+
+
+
+
+
+		<iframe style=" position: relative; left: 100px;  margin: 30px;  width: 70%; height: 400px; background: transparent; border: 0;"id="targetFrame0"></iframe><br>
+		<iframe  style=" position: relative; left: 100px;  margin: 30px;  width: 70%; height: 400px; background: transparent; border: 0;" allowTransparency="true" id="targetFrame1"></iframe><br>
+		<iframe  style=" position: relative; left: 100px;  margin: 30px;  width: 70%; height: 400px; background: transparent; border: 0;" allowTransparency="true" id="targetFrame2"></iframe><br>
+		<iframe  style=" position: relative; left: 100px;  margin: 30px;  width: 70%; height: 400px; background: transparent; border: 0;" allowTransparency="true" id="targetFrame3"></iframe><br>
+		<iframe  style=" position: relative; left: 100px;  margin: 30px;  width: 70%; height: 400px; background: transparent; border: 0;" allowTransparency="true" id="targetFrame4"></iframe><br>
+
+
+
+</html>
